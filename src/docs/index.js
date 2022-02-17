@@ -2,12 +2,15 @@ const basicInfo = require("./basicInfo");
 const servers = require("./servers");
 const components = require("./components");
 const tags = require("./tags");
-const auth = require("./users");
+const security = require("./security");
 
+const routes = require("./routes");
+console.log("routes", routes);
 module.exports = {
     ...basicInfo,
     ...servers,
     ...components,
     ...tags,
-    ...auth,
+    ...security,
+    ...routes,
 };

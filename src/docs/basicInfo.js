@@ -8,5 +8,5 @@ module.exports = {
             name: "Hchaichi Akrem",
             email: "hchaichi-akrem@outlook.fr",
         },
-    },
+    }
 };

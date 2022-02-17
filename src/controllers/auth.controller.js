@@ -34,7 +34,7 @@ const userController = {
     signin: async (req, res) => {
         try {
             const { email, password } = req.body;
-            console.log();
+   
             if (!(email && password)) res.status(406).end();
 
             const user = await User.findOne({ email });
@@ -50,7 +50,6 @@ const userController = {
 
             res.status(201).send({ user_id: _id, role, token });
         } catch (error) {
-            console.log("error", error);
             res.status(500).send(error);
         }
     },

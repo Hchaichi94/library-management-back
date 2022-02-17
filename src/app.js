@@ -6,9 +6,10 @@ const cors = require("cors");
 const connectDB = require("./config/database");
 const swaggerUI = require("swagger-ui-express");
 const docs = require("./docs");
-
+console.log("docs", docs);
 connectDB();
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use(require("./routes/index"));

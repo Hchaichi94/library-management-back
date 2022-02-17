@@ -90,5 +90,12 @@ module.exports = {
                 },
             },
         },
+        securitySchemes: {
+            ApiKeyAuth: {
+                type: "apiKey",
+                in: "header",
+                name: "jwt-token",
+            },
+        },
     },
 };
