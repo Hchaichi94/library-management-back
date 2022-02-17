@@ -3,22 +3,12 @@ const mongoose = require("mongoose");
 const Role = ["admin", "employee"];
 const UserSchema = new mongoose.Schema(
     {
-        firstName: {
-            type: String,
-        },
-        lastName: {
-            type: String,
-        },
-        email: {
-            type: String,
-        },
-        password: {
-            type: String,
-        },
-        role: {
-            type: String,
-            enum: Role,
-        },
+        first_name: { type: String, default: null },
+        last_name: { type: String, default: null },
+        email: { type: String, unique: true },
+        password: { type: String },
+        token: { type: String },
+        role: { type: String, enum: Role, default: "employee" },
     },
     { timestamps: true }
 );
