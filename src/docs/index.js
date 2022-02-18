@@ -3,9 +3,8 @@ const servers = require("./servers");
 const components = require("./components");
 const tags = require("./tags");
 const security = require("./security");
-
 const routes = require("./routes");
-console.log("routes", routes);
+
 module.exports = {
     ...basicInfo,
     ...servers,

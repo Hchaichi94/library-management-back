@@ -6,7 +6,7 @@ const cors = require("cors");
 const connectDB = require("./config/database");
 const swaggerUI = require("swagger-ui-express");
 const docs = require("./docs");
-console.log("docs", docs);
+
 connectDB();
 const app = express();
 
