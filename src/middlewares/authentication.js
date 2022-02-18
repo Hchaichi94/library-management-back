@@ -4,7 +4,7 @@ const config = process.env;
 
 const authentication = async (req, res, next) => {
     const token = req.headers["jwt-token"];
-
+    console.log("token", token);
     if (!token) res.status(401).end();
 
     try {

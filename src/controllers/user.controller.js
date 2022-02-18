@@ -24,6 +24,33 @@ const userController = {
             return res.status(500).send(error);
         }
     },
+    update: async (req, res) => {
+        try {
+            const { first_name, last_name, email, password, role } = req.body;
+
+            if (!(email && password && first_name && last_name && role))
+                return res.status(406).end();
+
+            const user = await User.findById(req.params.id);
+       
+            if (email !== user.email) {
+                const oldUser = await User.findOne({ email });
+                if (oldUser) return res.status(406).end();
+            }
+
+            const updates = Object.keys(req.body);
+            updates.forEach((update) => (user[update] = req.body[update]));
+            encryptedPassword = await bcrypt.hash(password, 10);
+            user.password = encryptedPassword;
+         
+            user.save();
+
+            return res.status(201).send(user);
+        } catch (error) {
+            console.log("eeee", error);
+            return res.status(500).send(error);
+        }
+    },
     getAll: async (req, res) => {
         const { offset, limit, type } = req.query;
         try {

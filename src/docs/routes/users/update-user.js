@@ -3,6 +3,11 @@ module.exports = {
         tags: ["User-resource"],
         description: "Update User",
         operationId: "updateUser",
+        security: [
+            {
+                ApiKeyAuth: [],
+            },
+        ],
         parameters: [
             {
                 name: "id",
@@ -33,6 +38,7 @@ module.exports = {
                     },
                 },
             },
+            406: {},
             401: {},
             403: {},
             404: {},
