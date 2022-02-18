@@ -26,6 +26,8 @@ const categoryController = {
             if (!name) return res.status(406).end();
 
             const category = await Category.findById(req.params.id);
+            if (!category) return res.status(406).end();
+
             const oldCategory = await Category.findOne({ name });
             if (oldCategory) return res.status(406).end();
 

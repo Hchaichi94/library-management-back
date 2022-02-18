@@ -61,6 +61,81 @@ module.exports = {
                     },
                 },
             },
+            Book: {
+                type: "object",
+                properties: {
+                    id: {
+                        type: "string",
+                        description: "Book's identification number",
+                        example: "1d956995-bfeb-4381-b8a7-e6fc5ed45fc2",
+                    },
+                    title: {
+                        type: "string",
+                        description: "Book's title",
+                        example: "new sport",
+                    },
+                    auther: {
+                        type: "string",
+                        description: "Book's auther",
+                        example: "sport",
+                    },
+                    pages: {
+                        type: "number",
+                        description: "Book's pages",
+                        example: 56,
+                    },
+                    price: {
+                        type: "number",
+                        description: "Book's price",
+                        example: 1.25,
+                    },
+                    quantity: {
+                        type: "number",
+                        description: "Book's quantity",
+                        example: 12,
+                    },
+                    category: {
+                        type: "string",
+                        description: "Book's category",
+                        example: "620f9fc1be8b8896c50f04ce",
+                    },
+                },
+            },
+            CreateBookInput: {
+                type: "object",
+                properties: {
+                    title: {
+                        type: "string",
+                        description: "Book's title",
+                        example: "new sport",
+                    },
+                    auther: {
+                        type: "string",
+                        description: "Book's auther",
+                        example: "sport",
+                    },
+                    pages: {
+                        type: "number",
+                        description: "Book's pages",
+                        example: 56,
+                    },
+                    price: {
+                        type: "number",
+                        description: "Book's price",
+                        example: 1.25,
+                    },
+                    quantity: {
+                        type: "number",
+                        description: "Book's quantity",
+                        example: 12,
+                    },
+                    categoryId: {
+                        type: "string",
+                        description: "Book's category",
+                        example: "620f9fc1be8b8896c50f04ce",
+                    },
+                },
+            },
             CreateCategoryInput: {
                 type: "object",
                 properties: {
