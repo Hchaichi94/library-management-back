@@ -1,8 +1,8 @@
 module.exports = {
-    delete: {
+    get: {
         tags: ["User-resource"],
-        description: "Deleting a User",
-        operationId: "deleteUser",
+        description: "Get User",
+        operationId: "getUser",
         security: [
             {
                 ApiKeyAuth: [],
@@ -16,11 +16,19 @@ module.exports = {
                     $ref: "#/components/schemas/id",
                 },
                 required: true,
-                description: "Deleting a done User",
+                description: "Get a done User",
             },
         ],
         responses: {
-            200: {},
+            200: {
+                content: {
+                    "application/json": {
+                        schema: {
+                            items: { $ref: "#/components/schemas/User" },
+                        },
+                    },
+                },
+            },
             401: {},
             403: {},
             404: {},

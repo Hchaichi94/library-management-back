@@ -26,9 +26,9 @@ const userController = {
                 expiresIn: "7d",
             });
 
-            res.status(201).send({ user_id: _id, role, token });
+            return res.status(201).send({ user_id: _id, role, token });
         } catch (error) {
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
     },
     signin: async (req, res) => {
@@ -48,9 +48,9 @@ const userController = {
                 expiresIn: "7d",
             });
 
-            res.status(201).send({ user_id: _id, role, token });
+            return res.status(201).send({ user_id: _id, role, token });
         } catch (error) {
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
     },
 };

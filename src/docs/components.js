@@ -6,6 +6,11 @@ module.exports = {
                 description: "An id of a notification",
                 example: "1d956995-bfeb-4381-b8a7-e6fc5ed45fc2",
             },
+            role: {
+                type: "enum",
+                description: "An role of a user",
+                enum: ["admin", "employee"],
+            },
             User: {
                 type: "object",
                 properties: {
@@ -78,6 +83,39 @@ module.exports = {
                         type: "string",
                         description: "User's password",
                         example: "password",
+                    },
+                },
+            },
+            CreateUserInput: {
+                type: "object",
+                properties: {
+                    first_name: {
+                        type: "string",
+                        description: "User's first_name",
+                        example: "akrem",
+                    },
+                    last_name: {
+                        type: "string",
+                        description: "User's first_name",
+                        example: "hchaichi",
+                    },
+                    email: {
+                        type: "string",
+                        description: "User's email",
+                        example: "hchaichi-akrem@outlook.fr",
+                    },
+                    password: {
+                        type: "string",
+                        description: "User's password",
+                        example: "password",
+                    },
+                    role: {
+                        type: "enum",
+                        description: "User's type",
+                        schema: {
+                            $ref: "#/components/schemas/role",
+                        },
+                        example: "employee",
                     },
                 },
             },
