@@ -6,8 +6,10 @@ const authorization = require("../middlewares/authorization");
 
 const userRoutes = require("./user.route");
 const authRoutes = require("./auth.route");
+const categoryRoutes = require("./category.route");
 
 router.use("/api/user/", authentication, authorization, userRoutes);
+router.use("/api/category/", authentication, categoryRoutes);
 router.use("/api/auth/", authRoutes);
 
 router.get("/api", (req, res) => {

@@ -1,28 +1,30 @@
 module.exports = {
-    post: {
-        tags: ["User-resource"],
-        description: "Create User",
-        operationId: "CreateUser",
+    get: {
+        tags: ["Category-resource"],
+        description: "Get Category",
+        operationId: "getCategory",
         security: [
             {
                 ApiKeyAuth: [],
             },
         ],
-        requestBody: {
-            content: {
-                "application/json": {
-                    schema: {
-                        $ref: "#/components/schemas/CreateUserInput",
-                    },
+        parameters: [
+            {
+                name: "id",
+                in: "path",
+                schema: {
+                    $ref: "#/components/schemas/id",
                 },
+                required: true,
+                description: "Get a done Category",
             },
-        },
+        ],
         responses: {
             200: {
                 content: {
                     "application/json": {
                         schema: {
-                            items: { $ref: "#/components/schemas/User" },
+                            items: { $ref: "#/components/schemas/Category" },
                         },
                     },
                 },

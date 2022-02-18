@@ -46,6 +46,31 @@ module.exports = {
                     },
                 },
             },
+            Category: {
+                type: "object",
+                properties: {
+                    id: {
+                        type: "string",
+                        description: "Category's identification number",
+                        example: "1d956995-bfeb-4381-b8a7-e6fc5ed45fc2",
+                    },
+                    name: {
+                        type: "string",
+                        description: "Category's name",
+                        example: "sport",
+                    },
+                },
+            },
+            CreateCategoryInput: {
+                type: "object",
+                properties: {
+                    name: {
+                        type: "string",
+                        description: "Category's name",
+                        example: "sport",
+                    },
+                },
+            },
             SignUpInput: {
                 type: "object",
                 properties: {

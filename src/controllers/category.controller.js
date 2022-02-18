@@ -1,5 +1,4 @@
 const Category = require("../models/category");
-const bcrypt = require("bcryptjs");
 
 const categoryController = {
     create: async (req, res) => {
@@ -17,6 +16,27 @@ const categoryController = {
 
             return res.status(201).send(category);
         } catch (error) {
+            return res.status(500).send(error);
+        }
+    },
+    update: async (req, res) => {
+        try {
+            const { name } = req.body;
+
+            if (!name) return res.status(406).end();
+
+            const category = await Category.findById(req.params.id);
+            const oldCategory = await Category.findOne({ name });
+            if (oldCategory) return res.status(406).end();
+
+            const updates = Object.keys(req.body);
+            updates.forEach((update) => (category[update] = req.body[update]));
+
+            category.save();
+
+            return res.status(201).send(category);
+        } catch (error) {
+            console.log("eeee", error);
             return res.status(500).send(error);
         }
     },
@@ -50,4 +70,4 @@ const categoryController = {
     },
 };
 
-module.exports = userController;
+module.exports = categoryController;
