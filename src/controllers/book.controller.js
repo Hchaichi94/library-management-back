@@ -5,6 +5,7 @@ const Auther = require("../models/auther");
 const categoryController = {
     create: async (req, res) => {
         try {
+          
             const { title, autherId, pages, price, quantity, categoryId } = req.body;
 
             if (!(title && autherId && pages && price && quantity && categoryId))

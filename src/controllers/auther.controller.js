@@ -5,7 +5,7 @@ const autherController = {
         try {
             const { first_name, last_name, age, country } = req.body;
 
-            if (!(first_name && last_name && age && country)) res.status(406).end();
+            if (!(first_name && last_name && age && country)) return res.status(406).end();
 
             const auther = await Auther.create({
                 ...req.body,
@@ -13,7 +13,6 @@ const autherController = {
 
             return res.status(201).send(auther);
         } catch (error) {
-            console.log("ee", error);
             return res.status(500).send(error);
         }
     },
@@ -21,7 +20,7 @@ const autherController = {
         try {
             const { first_name, last_name, age, country } = req.body;
 
-            if (!(first_name && last_name && age && country)) res.status(406).end();
+            if (!(first_name && last_name && age && country)) return res.status(406).end();
 
             const auther = await Auther.findById(req.params.id);
             if (!auther) return res.status(406).end();

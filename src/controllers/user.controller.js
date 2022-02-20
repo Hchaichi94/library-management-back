@@ -70,6 +70,14 @@ const userController = {
             return res.status(500).send(error);
         }
     },
+    account: async (req, res) => {
+        try {
+            const user = await User.findById(req.user.user_id).select("-password");
+            return res.status(200).send(user);
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+    },
     deleteOne: async (req, res) => {
         try {
             await User.findByIdAndDelete(req.params.id);

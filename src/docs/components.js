@@ -224,6 +224,14 @@ module.exports = {
                         description: "User's password",
                         example: "password",
                     },
+                    role: {
+                        type: "enum",
+                        description: "User's role",
+                        schema: {
+                            $ref: "#/components/schemas/role",
+                        },
+                        example: "admin",
+                    },
                 },
             },
             SignInInput: {

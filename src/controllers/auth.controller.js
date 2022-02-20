@@ -5,9 +5,10 @@ const jwt = require("jsonwebtoken");
 const userController = {
     signup: async (req, res) => {
         try {
-            const { first_name, last_name, email, password } = req.body;
+            const { first_name, last_name, email, password, role } = req.body;
 
-            if (!(email && password && first_name && last_name)) res.status(406).end();
+            if (!(email && password && first_name && last_name && role))
+                return res.status(406).end();
 
             const oldUser = await User.findOne({ email });
             if (oldUser) res.status(406).end();
@@ -18,9 +19,10 @@ const userController = {
                 last_name,
                 email: email.toLowerCase(),
                 password: encryptedPassword,
+                role,
             });
 
-            const { _id, role } = user;
+            const { _id } = user;
 
             const token = jwt.sign({ user_id: _id, email, role }, process.env.TOKEN_KEY, {
                 expiresIn: "7d",
@@ -36,7 +38,6 @@ const userController = {
             const { email, password } = req.body;
             if (!(email && password)) return res.status(406).end();
 
-       
             const user = await User.findOne({ email });
             if (!user) res.status(406).end();
 
