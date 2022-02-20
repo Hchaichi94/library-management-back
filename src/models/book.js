@@ -13,6 +13,10 @@ const BookSchema = new mongoose.Schema(
             type: Schema.Types.ObjectId,
             ref: "Category",
         },
+        auther: {
+            type: Schema.Types.ObjectId,
+            ref: "Auther",
+        },
     },
     { timestamps: true }
 );

@@ -61,6 +61,36 @@ module.exports = {
                     },
                 },
             },
+            Auther: {
+                type: "object",
+                properties: {
+                    id: {
+                        type: "string",
+                        description: "Auther's identification number",
+                        example: "1d956995-bfeb-4381-b8a7-e6fc5ed45fc2",
+                    },
+                    first_name: {
+                        type: "string",
+                        description: "Auther's first_name",
+                        example: "akrem",
+                    },
+                    last_name: {
+                        type: "string",
+                        description: "Auther's first_name",
+                        example: "hchaichi",
+                    },
+                    age: {
+                        type: "number",
+                        description: "Auther's age",
+                        example: 56,
+                    },
+                    country: {
+                        type: "string",
+                        description: "Auther's country",
+                        example: "tunisia",
+                    },
+                },
+            },
             Book: {
                 type: "object",
                 properties: {
@@ -101,6 +131,31 @@ module.exports = {
                     },
                 },
             },
+            CreateAutherInput: {
+                type: "object",
+                properties: {
+                    first_name: {
+                        type: "string",
+                        description: "Auther's first_name",
+                        example: "akrem",
+                    },
+                    last_name: {
+                        type: "string",
+                        description: "Auther's first_name",
+                        example: "hchaichi",
+                    },
+                    age: {
+                        type: "number",
+                        description: "Auther's age",
+                        example: 56,
+                    },
+                    country: {
+                        type: "string",
+                        description: "Auther's country",
+                        example: "tunisia",
+                    },
+                },
+            },
             CreateBookInput: {
                 type: "object",
                 properties: {
@@ -109,10 +164,10 @@ module.exports = {
                         description: "Book's title",
                         example: "new sport",
                     },
-                    auther: {
+                    autherId: {
                         type: "string",
-                        description: "Book's auther",
-                        example: "sport",
+                        description: "Book's auther id",
+                        example: "620f9fc1be8b8896c50f04ce",
                     },
                     pages: {
                         type: "number",
@@ -131,7 +186,7 @@ module.exports = {
                     },
                     categoryId: {
                         type: "string",
-                        description: "Book's category",
+                        description: "Book's category id",
                         example: "620f9fc1be8b8896c50f04ce",
                     },
                 },
