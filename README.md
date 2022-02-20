@@ -15,7 +15,9 @@ step 2 :
 then inside main folder make a file called .env
 
 API_PORT=4000
+
 MONGO_URI='mongodb://127.0.0.1:27017/libraryDB'
+
 TOKEN_KEY=ggebtyhbytrgvkjn52945-+5+941+6
 
 step 3 :
