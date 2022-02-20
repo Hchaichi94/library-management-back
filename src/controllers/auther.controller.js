@@ -11,7 +11,7 @@ const autherController = {
                 ...req.body,
             });
 
-            return res.status(201).send(auther);
+            return res.status(200).send(auther);
         } catch (error) {
             console.log('ee',error)
             return res.status(500).send(error);

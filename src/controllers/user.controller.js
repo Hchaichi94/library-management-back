@@ -26,13 +26,10 @@ const userController = {
     },
     update: async (req, res) => {
         try {
-            const { first_name, last_name, email, password, role } = req.body;
-
-            if (!(email && password && first_name && last_name && role))
-                return res.status(406).end();
+            const { email, password } = req.body;
 
             const user = await User.findById(req.params.id);
-       
+
             if (email !== user.email) {
                 const oldUser = await User.findOne({ email });
                 if (oldUser) return res.status(406).end();
@@ -40,14 +37,15 @@ const userController = {
 
             const updates = Object.keys(req.body);
             updates.forEach((update) => (user[update] = req.body[update]));
-            encryptedPassword = await bcrypt.hash(password, 10);
-            user.password = encryptedPassword;
-         
+            if (password) {
+                encryptedPassword = await bcrypt.hash(password, 10);
+                user.password = encryptedPassword;
+            }
+
             user.save();
 
-            return res.status(201).send(user);
+            return res.status(200).send(user);
         } catch (error) {
-            console.log("eeee", error);
             return res.status(500).send(error);
         }
     },

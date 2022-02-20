@@ -54,7 +54,7 @@ const categoryController = {
 
             book.save();
 
-            return res.status(201).send();
+            return res.status(200).send();
         } catch (error) {
             return res.status(500).send(error);
         }

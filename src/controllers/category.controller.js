@@ -3,6 +3,7 @@ const Category = require("../models/category");
 const categoryController = {
     create: async (req, res) => {
         try {
+            console.log("create", req.body);
             const { name } = req.body;
 
             if (!name) return res.status(406).end();
@@ -14,13 +15,15 @@ const categoryController = {
                 name,
             });
 
-            return res.status(201).send(category);
+            return res.status(200).send(category);
         } catch (error) {
             return res.status(500).send(error);
         }
     },
     update: async (req, res) => {
         try {
+            console.log("update", req.body);
+
             const { name } = req.body;
 
             if (!name) return res.status(406).end();
@@ -28,8 +31,10 @@ const categoryController = {
             const category = await Category.findById(req.params.id);
             if (!category) return res.status(406).end();
 
-            const oldCategory = await Category.findOne({ name });
-            if (oldCategory) return res.status(406).end();
+            if (name === category.name) {
+                const oldCategory = await Category.findOne({ name });
+                if (oldCategory) return res.status(406).end();
+            }
 
             const updates = Object.keys(req.body);
             updates.forEach((update) => (category[update] = req.body[update]));
