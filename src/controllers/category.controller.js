@@ -3,7 +3,6 @@ const Category = require("../models/category");
 const categoryController = {
     create: async (req, res) => {
         try {
-            console.log("create", req.body);
             const { name } = req.body;
 
             if (!name) return res.status(406).end();
@@ -22,7 +21,6 @@ const categoryController = {
     },
     update: async (req, res) => {
         try {
-            console.log("update", req.body);
 
             const { name } = req.body;
 
