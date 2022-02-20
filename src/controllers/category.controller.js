@@ -15,7 +15,7 @@ const categoryController = {
                 name,
             });
 
-            return res.status(200).send(category);
+            return res.status(201).send(category);
         } catch (error) {
             return res.status(500).send(error);
         }
@@ -41,9 +41,8 @@ const categoryController = {
 
             category.save();
 
-            return res.status(201).send(category);
+            return res.status(200).send(category);
         } catch (error) {
-            console.log("eeee", error);
             return res.status(500).send(error);
         }
     },
